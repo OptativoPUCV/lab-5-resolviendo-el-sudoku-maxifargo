@@ -114,3 +114,12 @@ sudoku.c:130:13: error: implicit declaration of function 'is_final' [-Werror=imp
              ^~~~~~~~
 cc1.exe: all warnings being treated as errors
 b79c072
+Sun, May 18, 2025 12:15:49 AM: 
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'DFS':
+sudoku.c:130:13: error: implicit declaration of function 'is_final' [-Werror=implicit-function-declaration]
+         if (is_final(current)) {
+             ^~~~~~~~
+cc1.exe: all warnings being treated as errors
+eec560a
