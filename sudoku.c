@@ -89,25 +89,25 @@ List* get_adj_nodes(Node* n){
    List* list = createList();
 
    int i, j;
-   int found = 0;
-   for (i = 0; i < 9 && !found; i++) {
-      for (j = 0; j < 9; j++) {
-         if (n->sudo[i][j] == 0) {
+   int found = 0; // Variable que marca un espacio vacío
+   for (i = 0; i < 9 && !found; i++) { // Iterar sobre filas
+      for (j = 0; j < 9; j++) { // Iterar sobre columnas
+         if (n->sudo[i][j] == 0) { // Encontrar un espacio vacío
             found = 1;
             break;
          }
       }
    }
 
-   if (!found) return list;
+   if (!found) return list; // Si no hay espacios vacíos, retornar lista vacía
 
    i--;
 
-   for (int k = 1; k <= 9; k++) {
+   for (int k = 1; k <= 9; k++) { // Probar números del 1 al 9
       Node* new_node = copy(n);
       new_node->sudo[i][j] = k;
 
-      if (is_valid(new_node)) {
+      if (is_valid(new_node)) { // Verificar si el nuevo nodo es válido
           pushBack(list, new_node);
       } else {
           free(new_node);
@@ -126,13 +126,13 @@ int is_final(Node* n){
    return 1;  // No hay casillas vacías, es estado final
 }
 
-Node* DFS(Node* initial, int* cont){
+Node* DFS(Node* initial, int* cont){ // Búsqueda en profundidad
     Stack* S = createStack();
     push(S, initial);
     *cont = 0;
 
-    while (!is_empty(S)) {
-        Node* current = top(S);
+    while (!is_empty(S)) { // Mientras la pila no esté vacía
+        Node* current = top(S); // Obtener el nodo en la cima de la pila
         pop(S);
         (*cont)++;
 
@@ -145,12 +145,12 @@ Node* DFS(Node* initial, int* cont){
             }
         }
 
-        List* adj = get_adj_nodes(current);
-        Node* adjNode = first(adj);
+        List* adj = get_adj_nodes(current); // Obtener nodos adyacentes
+        Node* adjNode = first(adj); // Obtener el primer nodo adyacente
 
-        while (adjNode != NULL) {
-            push(S, adjNode);
-            adjNode = next(adj);
+        while (adjNode != NULL) { // Iterar sobre los nodos adyacentes
+            push(S, adjNode); // Agregar nodo a la pila
+            adjNode = next(adj); // Obtener el siguiente nodo adyacente
         }
 
         free(current);
