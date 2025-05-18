@@ -123,3 +123,9 @@ sudoku.c:130:13: error: implicit declaration of function 'is_final' [-Werror=imp
              ^~~~~~~~
 cc1.exe: all warnings being treated as errors
 eec560a
+Sun, May 18, 2025 12:15:56 AM: 
+ sudoku.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ tests:  10|0
+total_score: 70/70
+477bef4
