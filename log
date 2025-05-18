@@ -53,3 +53,28 @@ test.c:7:8: error: '_strdup' defined but not used [-Werror=unused-function]
         ^~~~~~~
 cc1.exe: all warnings being treated as errors
 4eff8b5
+Sun, May 18, 2025 12:12:54 AM: 
+Compilation failed
+In file included from test.c:5:0:
+sudoku.c: In function 'DFS':
+sudoku.c:130:13: error: implicit declaration of function 'is_final' [-Werror=implicit-function-declaration]
+         if (is_final(current)) {
+             ^~~~~~~~
+test.c:245:5: error: 'main' is normally a non-static function [-Werror=main]
+ int main( int argc, char *argv[] ) {
+     ^~~~
+test.c:262:1: error: expected declaration or statement at end of input
+ }
+ ^
+test.c:262:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+At top level:
+test.c:245:5: error: 'main' defined but not used [-Werror=unused-function]
+ int main( int argc, char *argv[] ) {
+     ^~~~
+test.c:7:8: error: '_strdup' defined but not used [-Werror=unused-function]
+ char * _strdup(const char * str) {
+        ^~~~~~~
+cc1.exe: all warnings being treated as errors
+accf89f
